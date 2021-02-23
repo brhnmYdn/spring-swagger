@@ -1,15 +1,22 @@
-package com.example.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+Swagger Maven => {
+ <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+            <scope>compile</scope>
+        </dependency>
+}
+
+
+Swagger Config  => {
 @EnableSwagger2
 @Configuration
 public class SwaggerConfig {
@@ -22,8 +29,7 @@ public class SwaggerConfig {
                 .build()
                 .apiInfo(info());
     }
-
-    private ApiInfo info() {
+     private ApiInfo info() {
         return new ApiInfo(
                 "User API",
                 "User Api Description",
@@ -34,4 +40,5 @@ public class SwaggerConfig {
                 "https://opensource.org/licenses/MIT"
         );
     }
+}
 }
